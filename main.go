@@ -38,17 +38,17 @@ func (a *Article) FormatPublishedDate() string {
 	return fmt.Sprintf("%v %d, %d", month, day, year)
 }
 
-type Results struct {
-	Status       string    `json:"status"`
-	TotalResults int       `json:"totalResults"`
-	Articles     []Article `json:"articles"`
-}
-
 type Search struct {
 	SearchKey  string
 	NextPage   int
 	TotalPages int
 	Results    Results
+}
+
+type Results struct {
+	Status       string    `json:"status"`
+	TotalResults int       `json:"totalResults"`
+	Articles     []Article `json:"articles"`
 }
 
 func (s *Search) IsLastPage() bool {
